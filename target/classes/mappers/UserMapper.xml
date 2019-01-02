@@ -158,6 +158,10 @@
     where username = #{username}
   </select>
 
+  <select id="checkEmail" resultType="int" parameterType="string">
+    select count(1) from mmall_user
+    where email = #{email}
+  </select>
 
   <select id="selectLogin" resultMap="BaseResultMap" parameterType="map">
     select
@@ -166,5 +170,11 @@
     where username = #{username}
     and
     password = #{password}
+  </select>
+
+  <select id="selectQuestionByUserName" resultType="string" parameterType="string">
+    SELECT question
+    FROM mmall_user
+    WHERE username = #{username}
   </select>
 </mapper>
