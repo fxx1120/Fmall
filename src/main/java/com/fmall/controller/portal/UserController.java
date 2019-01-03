@@ -103,8 +103,58 @@ public class UserController {
         return iUserService.selsectQuestion(username);
     }
 
-//
-//    private ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
-//
+    /***
+     * 校验问题答案
+     * @param username
+     * @param question
+     * @param answer
+     * @return
+     */
+    @RequestMapping(value = "forget_check_answer.do",method = RequestMethod.POST)
+    @ResponseBody
+    private ServerResponse<String> forgetCheckAnswer(String username,String question,String answer){
+        return iUserService.CheckAnswer(username, question, answer);
+    }
+
+
+    /**
+     * 重置密码
+     * @param username
+     * @param passwordNew
+     * @param forgetToken
+     * @return
+     */
+    @RequestMapping(value = "forget_reset_password.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<String> forgetRestPassword(String username,String passwordNew,String forgetToken){
+        return iUserService.forgetRestPassword(username, passwordNew, forgetToken);
+    }
+
+    /**
+     * 修改密码
+     * @param session
+     * @param passwordOld
+     * @param passwordNew
+     * @return
+     */
+    @RequestMapping(value = "reset_password.do",method = RequestMethod.POST)
+    @ResponseBody
+    public ServerResponse<String> resetPassword(HttpSession session,String passwordOld,String passwordNew){
+        User user = (User) session.getAttribute(Const.CURRENT_USER);
+        if (user==null){
+            return ServerResponse.createByErrorMessage("用户未登录");
+        }
+
+        return iUserService.resetPassword(passwordOld,passwordNew,user);
+    }
+
+
+//    public ServerResponse<User> updateInformation(HttpSession session,User user){
+//        User currentUser = (User) session.getAttribute(Const.CURRENT_USER);
+//        if (currentUser==null){
+//            return ServerResponse.createByErrorMessage("用户未登录");
+//        }
+//        user.setId(currentUser.getId());
+//        return iUserService.
 //    }
 }
