@@ -188,11 +188,11 @@
 
   </select>
 
-    <select id="updatePasswordByUsername" resultType="int" parameterType="map">
+    <update id="updatePasswordByUsername"  parameterType="map">
     UPDATE mmall_user
-    SET password = #{password},update_time = now()
+    SET password = #{passwordNew},update_time = now()
     WHERE username = #{username}
-  </select>
+  </update>
 
     <select id="checkPassword" resultType="int" parameterType="map">
     SELECT
@@ -201,4 +201,10 @@
     WHERE id = #{userId}
     and password = #{password}
   </select>
+
+    <select id="checkEmailByUserId" resultType="int" parameterType="map">
+    select count(1) from mmall_user
+    where email = #{email}
+    and id != #{userId}
+    </select>
 </mapper>

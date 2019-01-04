@@ -12,7 +12,7 @@
 
     <appender name="fmall" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/fmalllog/fmall.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/fmall.log</File>
+        <File>/Users/fxx028/Library/ApacheTomcat9/logs/fmall.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/developer/apache-tomcat-7.0.73/logs/fmall.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <append>true</append>
@@ -26,7 +26,7 @@
 
     <appender name="error" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <!--<File>d:/fmalllog/error.log</File>-->
-        <File>/developer/apache-tomcat-7.0.73/logs/error.log</File>
+        <File>/Users/fxx028/Library/ApacheTomcat9/logs/error.log</File>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/devsoft/apache-tomcat-7.0.73/logs/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>
             <!--<fileNamePattern>d:/fmalllog/error.log.%d{yyyy-MM-dd}.gz</fileNamePattern>-->
