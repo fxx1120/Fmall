@@ -1,6 +1,8 @@
 package com.fmall.service.impl;
 
 import com.fmall.service.IFileService;
+import com.fmall.util.FTPUtil;
+import com.google.common.collect.Lists;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -34,10 +36,8 @@ public class FileServiceImpl implements IFileService{
         File targetFile = new File(path,uploadFileName);
         try {
             file.transferTo(targetFile);
-
-            // TODO: 2019/1/9 上传
-            //// TODO: 2019/1/9 删除
-
+//            FTPUtil.uploadFile(Lists.<File>newArrayList(targetFile));
+//            targetFile.delete();
 
         } catch (IOException e) {
             logger.error("上传文件异常");

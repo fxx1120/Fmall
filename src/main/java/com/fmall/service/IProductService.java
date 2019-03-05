@@ -11,11 +11,16 @@ import com.github.pagehelper.PageInfo;
 public interface IProductService {
     ServerResponse saveOrUpdateProduct(Product product);
 
-    ServerResponse<String> setSaleStatus(Integer productId,Integer status);
+    ServerResponse<String> setSaleStatus(Integer productId, Integer status);
 
     ServerResponse<ProductDetailVo> manageProductDetail(Integer productId);
 
     ServerResponse<PageInfo> getProductList(int pageNum, int pageSize);
 
-    ServerResponse<PageInfo> searchProductList(String productName,Integer productId,int pageNum,int pageSize);
+    ServerResponse<PageInfo> searchProductList(String productName, Integer productId, int pageNum, int pageSize);
+
+    ServerResponse<ProductDetailVo> detail(Integer productId);
+
+    ServerResponse<PageInfo> getProductByKeywordCategroy( String keyword, Integer categoryId,
+                                                          int pageNum, int pageSize,String orderBy);
 }
